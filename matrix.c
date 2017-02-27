@@ -12,6 +12,14 @@ Returns:
 print the matrix
 */
 void print_matrix(struct matrix *m) {
+  int row,col;
+  for (row = 0; row < m->rows; row++){
+    printf("| ");
+    for (col = 0; col < m->cols; col++){
+      printf("%f ",m->m[row][col]);
+    }
+    printf(" |\n");
+  }
 }
 
 /*-------------- void ident() --------------

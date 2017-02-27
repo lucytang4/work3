@@ -14,5 +14,8 @@ int main() {
 
   edges = new_matrix(4, 4);
 
+  printf("4x4 matrix:\n");
+  print_matrix(edges);
+
   free_matrix( edges );
 }  
