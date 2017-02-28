@@ -14,8 +14,23 @@ int main() {
 
   edges = new_matrix(4, 4);
 
-  printf("4x4 matrix:\n");
+  printf("matrix1:\n");
   print_matrix(edges);
+
+  ident(edges);
+  printf("matrix1 identity matrix:\n");
+  print_matrix(edges);
+
+  scalar_mult(2,edges);
+  printf("4x4 scalar multiplication by 2\n");
+  print_matrix(edges);
+  
+  struct matrix *edges2;
+  
+  edges2 = new_matrix(4,2);
+  
+  printf(
+  
 
   free_matrix( edges );
 }  

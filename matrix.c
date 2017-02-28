@@ -20,6 +20,7 @@ void print_matrix(struct matrix *m) {
     }
     printf(" |\n");
   }
+  printf("\n");
 }
 
 /*-------------- void ident() --------------
@@ -29,6 +30,17 @@ Returns:
 turns m in to an identity matrix
 */
 void ident(struct matrix *m) {
+  int row,col;
+  int ctr = 0;
+  for (row = 0; row < m->rows; row++){
+    for (col = 0; col < m->cols; col++){
+      if (ctr == col)
+	m->m[row][col] = 1;
+      else
+	m->m[row][col] = 0;
+    }
+    ctr++;
+  }
 }
 
 
@@ -40,6 +52,12 @@ Returns:
 multiply each element of m by x
 */
 void scalar_mult(double x, struct matrix *m) {
+  int row,col;
+  for (row = 0; row < m->rows; row++){
+    for (col = 0; col < m->cols; col++){
+      m->m[row][col] *= x;
+    }
+  }
 }
 
 
@@ -51,6 +69,16 @@ Returns:
 a*b -> b
 */
 void matrix_mult(struct matrix *a, struct matrix *b) {
+  int row,col,a_col,b_row;
+  for (row = 0; row < 4; row++){
+    for (col = 0; col < b->cols; col++){
+      for (a_col = 0; a_col < 4; a_col++){
+	for (b_row = 0; b_row < 4; b_row++){
+	  b->m[row][col] = a->m[row][a_col] * b->m[b_row][col];
+	}
+      }
+    }
+  }
 }
 
 
